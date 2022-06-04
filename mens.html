@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mens Page</title>
+    <style>
+        #grid {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .card {
+            padding: 20px;
+        }
+
+        img {
+            width: 50%;
+            margin-left: 25%;
+            height: 500px;
+        }
+
+        .name {
+            font-size: 25px;
+            font-weight: 600;
+            margin-top: 0px;
+            margin-bottom: -10px;
+        }
+
+        .card>div>div {
+            display: grid;
+            grid-template-columns: repeat(3, 55px);
+        }
+
+        .card>div {
+            margin: 0px 50px;
+        }
+
+        .desc {
+            font-size: 20px;
+            color: gray;
+        }
+
+        .price1 {
+            font-size: 22px;
+            margin-top: 0px;
+            font-weight: 500;
+        }
+        .lprice {
+            margin-top: 5px;
+            font-size: 18px;
+            color: gray;
+            text-decoration-line: line-through; 
+        }
+        .dis{
+            margin-top: 3px;
+            font-size: 20px;
+            font-weight: 500;
+            color: rgb(23, 185, 23);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grid">
+
+    </div>
+</body>
+
+</html>
+<script>
+    let arr = [
+        { img: "https://m.media-amazon.com/images/I/71iibtCRitL._AC_UL480_FMwebp_QL65_.jpg", name: "PAUSE", des: "Men Cotton Long Sleeves Shrug", price: "₹359", lPrice: "₹1,499", dis: "-76%" },
+        { img: "https://m.media-amazon.com/images/I/61MxIVfEu8L._UX679_.jpg", name: "JUBINATION", des: "Men Wool Sleeveless Sweater Pack Of 1", price: "₹799", lPrice: "₹1,499", dis: "-47%" }
+    ]
+    // console.log(arr);
+
+    arr.forEach(function (el) {
+
+        let div = document.createElement("div");
+        div.setAttribute("class", "card")
+
+        let avatar = document.createElement("img");
+        avatar.setAttribute("src", el.img);
+
+        let p1 = document.createElement("p");
+        p1.setAttribute("class", "name");
+        p1.innerText = el.name;
+
+        let p2 = document.createElement("p");
+        p2.setAttribute("class", "desc");
+        p2.innerText = el.des;
+
+        let p3 = document.createElement("p");
+        p3.setAttribute("class", "price1");
+        p3.innerText = el.price;
+
+        let p4 = document.createElement("p");
+        p4.setAttribute("class", "lprice");
+        p4.innerText = el.lPrice;
+
+        let p5 = document.createElement("p");
+        p5.setAttribute("class", "dis");
+        p5.innerText = el.dis;
+
+        let div2 = document.createElement("div");
+        let div3 = document.createElement("div");
+
+        div2.append(p3, p4, p5);
+        div3.append(p1, p2, div2);
+        div.append(avatar, div3);
+        document.querySelector("#grid").append(div);
+    });
+
+
+</script>
